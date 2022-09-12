@@ -58,39 +58,25 @@ def filter_by_industry(jobs, industry):
 
 
 def get_max_salary(path):
-    """Get the maximum salary of all jobs
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
-    pass
+    jobs = read(path)
+    listunique = []
+    for job in jobs:
+        if not job["max_salary"] in listunique:
+            if (job["max_salary"] != "" and job["max_salary"].isnumeric()):
+                listunique.append(int(job["max_salary"]))
+    maxValue = max(listunique)
+    return maxValue
 
 
 def get_min_salary(path):
-    """Get the minimum salary of all jobs
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The minimum salary paid out of all job opportunities
-    """
-    pass
+    jobs = read(path)
+    listunique = []
+    for job in jobs:
+        if not job["min_salary"] in listunique:
+            if (job["min_salary"] != "" and job["min_salary"].isnumeric()):
+                listunique.append(int(job["min_salary"]))
+    maxValue = min(listunique)
+    return maxValue
 
 
 def matches_salary_range(job, salary):
@@ -138,3 +124,5 @@ def filter_by_salary_range(jobs, salary):
 
 
 # get_unique_industries('jobs.csv')
+# print(get_max_salary('jobs.csv'))
+# print(get_min_salary('jobs.csv'))

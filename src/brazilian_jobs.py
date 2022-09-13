@@ -23,3 +23,6 @@ def read_brazilian_file(path):
         job["type"] = job.pop("tipo")
 
     return dict_jobs
+
+
+# print(read_brazilian_file('jobs.csv'))

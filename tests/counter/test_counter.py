@@ -1,5 +1,7 @@
-# from src.counter import count_ocurrences
+from src.counter import count_ocurrences
 
 
 def test_counter():
-    pass
+    path = 'src/jobs.csv'
+    word = 'olá'
+    assert count_ocurrences(path, word) == 0
